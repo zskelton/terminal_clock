@@ -1,3 +1,15 @@
+use chrono::prelude::*;
+
 fn main() {
-    println!("Hello, world!");
+    let local: DateTime<Local> = Local::now();
+
+    println!("Localtime: {}", local);
+}
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn it_works() {
+        assert!(true);
+    }
 }
