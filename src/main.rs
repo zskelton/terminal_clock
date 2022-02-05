@@ -12,7 +12,7 @@ fn display_time() -> Result<(), String> {
     let data: String = format!("{}", Cyan.bold().paint(disp));
 
     // Show
-    println!("{intro} {data}\n");
+    println!("{intro} {data}");
 
     // Return Success
     Ok(())
@@ -22,7 +22,7 @@ fn display_time() -> Result<(), String> {
 fn main() {
     // Display Time
     if !display_time().is_ok() {
-        println!("{}", Red.paint(format!("Error: Date did not compute.\n")));
+        println!("{}", Red.paint(format!("Error: Date did not compute.")));
     }
 }
 
