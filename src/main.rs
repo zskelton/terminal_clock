@@ -1,14 +1,20 @@
 use chrono::prelude::*;
-use ansi_term::Colour;
+use ansi_term::Colour::{White, Cyan, Red};
 
 /* PROCESS FUNCTIONS */
 fn display_time() -> Result<(), String> {
+    // Get Data
     let local: DateTime<Local> = Local::now();
     let disp = local.to_rfc2822();
 
-    println!("{disp}\n");
-    // debug_show(format!("{}\n", disp));
+    // Build Display
+    let intro: String = format!("{}", White.bold().paint("Current:"));
+    let data: String = format!("{}", Cyan.bold().paint(disp));
 
+    // Show
+    println!("{intro} {data}\n");
+
+    // Return Success
     Ok(())
 }
 
@@ -16,7 +22,7 @@ fn display_time() -> Result<(), String> {
 fn main() {
     // Display Time
     if !display_time().is_ok() {
-        println!("{}", Colour::Red.paint(format!("Error: Date did not compute.\n")));
+        println!("{}", Red.paint(format!("Error: Date did not compute.\n")));
     }
 }
 
